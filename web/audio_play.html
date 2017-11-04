@@ -165,14 +165,8 @@
             description: '#구간공유',
             imageUrl: 'http://www.venturesquare.net/wp-content/uploads/2017/03/170310-podbbang.-002.png',
             link: {
-                mobileWebUrl: template('https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime=${stime}&etime=${etime}', {
-                    stime: starttime,
-                    etime: endtime
-                }),
-                webUrl: template('https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime=${stime}&etime=${etime}', {
-                    stime: starttime,
-                    etime: endtime
-                })
+                mobileWebUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
+                webUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
             }
         },
         social: {
