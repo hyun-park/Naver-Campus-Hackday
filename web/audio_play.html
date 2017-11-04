@@ -69,13 +69,18 @@
     </div>
 </div>
 <script>
+    // 카카오톡 초기화
+    Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
+    // 내부 오디오
     var myAudio = document.getElementById("myAudio");
+    // 외부 URL에서 가져온 오디오
+    var outAudio = document.getElementById("outAudio");
     // 특정 구간 추출하는 작동이 시작했는지 안했는지 판별하는 변수
     var isStart = true;
+    // 추출을 위한 시작시간 / 끝시간 초기화
     var startTime;
     var endTime;
 
-    var outAudio = document.getElementById("outAudio");
     // 두 번째 오디오 파일을 시작하면 자동으로 볼륨을 0.2로 바꾸는 event listener 등록
     outAudio.addEventListener('play',function(){
         outAudio.volume = 0.2;
@@ -108,18 +113,24 @@
     // 시작 구간 시간 구하는 함수
     function get_start_time() {
         console.log(myAudio.currentTime);
+        // startTime 변수에 현재 구간 시간을 넣음
         startTime = myAudio.currentTime;
-        $('#start_time').val(myAudio.currentTime);
+        // start_time input 태그 값에 현재 구간 시간을 넣음
+        $('#start_time').val(startTime);
+        // 아직 시작 구간만 구하고 있으므로 카카오톡 공유버튼은 숨김
         $('#kakao-link-btn').hide();
     }
 
     // 끝 구간 시간 구하는 함수
     function get_end_time() {
         console.log(myAudio.currentTime);
+        // endTime 변수에 현재 구간 시간을 넣음
         endTime = myAudio.currentTime;
-        $('#end_time').val(myAudio.currentTime);
+        // end_time input 태그 값에 현재 구간 시간을 넣음
+        $('#end_time').val(endTime);
         // 끝 구간을 구하면 카카오톡 버튼을 초기화 한다.
         kakao_share_button_init();
+        // 특정 구간 추출이 끝났으므로 카카오톡 공유버튼을 보여준다.
         $('#kakao-link-btn').show();
     }
 
@@ -150,10 +161,13 @@
         myAudio.removeEventListener('timeupdate', check_time);
     }
 
+    // url 파라미터를 추출하는 함수
     function getURLParameter(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
 
+    // 문서를 로드할때 url 파라미터 값이 있으면 startTime과 endTime을 해당 값들로 초기화 하며
+    // 오디오도 해당 시간에 맞춰서 재생된다.
     if(getURLParameter('stime')) {
         startTime = getURLParameter('stime');
         endTime = getURLParameter('etime');
@@ -165,8 +179,7 @@
         myAudio.play();
     }
 
-    Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
-
+    // 카카오톡 버튼 초기화
     function kakao_share_button_init() {
         console.log(startTime);
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
@@ -181,14 +194,8 @@
                     mobileWebUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
                     webUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
                 }
-            },
-            social: {
-                likeCount: 286,
-                commentCount: 45,
-                sharedCount: 845
             }
         });
-
     }
 
 </script>
