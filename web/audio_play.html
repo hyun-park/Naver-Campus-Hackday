@@ -124,8 +124,8 @@
     }
 
     // 추출한 시간 특정 구간만 오디오를 재생하는 함수
-    function play_specific_time() {
-        startTime = $('#start_time').val();
+    function play_specific_time() {;
+        startTime = $('#start_time').val()
         // 오디오에 현재 시간을 starttime으로 바꿈
         myAudio.currentTime = startTime;
         // 오디오 시간이 변경될 때 마다 check_time 함수를 실행하는 event listener 등록
@@ -149,14 +149,14 @@
     if(getURLParameter('stime')) {
         startTime = getURLParameter('stime');
         endTime = getURLParameter('etime');
+        $('#start_time').val(startTime);
+        $('#end_time').val(endTime);
         myAudio.currentTime = startTime;
+        myAudio.addEventListener('timeupdate', check_time);
+        myAudio.addEventListener('pause', remove_stop);
         myAudio.play();
-        myAudio.addEventListener('timeupdate', function(){
-            if(myAudio.currentTime >= endTime){
-                myAudio.pause();
-            }
-        });
     }
+
     Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
 
     function kakao_share_button_init() {
