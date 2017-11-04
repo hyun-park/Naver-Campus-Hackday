@@ -130,6 +130,23 @@
         myAudio.removeEventListener('timeupdate', check_time);
     }
 
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+
+    if(getURLParameter('stime')) {
+        var starttime = getURLParameter('stime');
+        var endtime = getURLParameter('etime');
+        myAudio.currentTime = starttime;
+        myAudio.play();
+        myAudio.addEventListener('timeupdate', function(){
+            if(myAudio.currentTime >= endtime){
+                myAudio.pause();
+            }
+        });
+    }
+
+
 </script>
 </body>
 </html>
