@@ -18,7 +18,10 @@
         .section-divider{
             margin: 50px 0;
         }
-        #kakao-link-btn {
+        .share-btn {
+            width:50px;
+        }
+        .share-btns{
             display: none;
         }
     </style>
@@ -50,10 +53,13 @@
             <!--특정 구간만 재생-->
             <button onclick="play_specific_time()">Play Specific!</button>
         </div>
-        <div>
+        <div class="share-btns">
             <!-- 카카오톡 공유버튼 -->
             <a id="kakao-link-btn" href="javascript:;">
-                <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+                <img class="share-btn" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
+            </a>
+            <a href="javascript:facebook_share_button_link();">
+                <img class="share-btn" src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png"/>
             </a>
         </div>
     </div>
@@ -118,7 +124,7 @@
         // start_time input 태그 값에 현재 구간 시간을 넣음
         $('#start_time').val(startTime);
         // 아직 시작 구간만 구하고 있으므로 카카오톡 공유버튼은 숨김
-        $('#kakao-link-btn').hide();
+        $('.share-btns').hide();
     }
 
     // 끝 구간 시간 구하는 함수
@@ -131,7 +137,7 @@
         // 끝 구간을 구하면 카카오톡 버튼을 초기화 한다.
         kakao_share_button_init();
         // 특정 구간 추출이 끝났으므로 카카오톡 공유버튼을 보여준다.
-        $('#kakao-link-btn').show();
+        $('.share-btns').show();
     }
 
     // 오디오 play 시간을 확인해서 끝 구간보다 커지면 오디오를 정지
@@ -198,6 +204,10 @@
         });
     }
 
+    function facebook_share_button_link() {
+        var hostname = window.location.hostname;
+        location.href = 'https://www.facebook.com/sharer/sharer.php?u=http://' + hostname;
+    }
 </script>
 </body>
 </html>

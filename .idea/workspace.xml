@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db9ffd85-a970-4ab0-a53d-4ce6b1f939ab" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/python/streaming_mic2.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/audio_play.html" afterPath="$PROJECT_DIR$/web/audio_play.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="audio_play.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/audio_play.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6708">
-              <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+            <state relative-caret-position="452">
+              <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -71,8 +70,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="541" />
-    <option name="y" value="516" />
+    <option name="x" value="113" />
+    <option name="y" value="9" />
     <option name="width" value="1737" />
     <option name="height" value="999" />
   </component>
@@ -142,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.kakaotalk_share.html">
+  <component name="RunManager" selected="JavaScript Debug.audio_play.html">
     <configuration default="false" name="audio_play.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Naver-Campus-Hackday/web/audio_play.html">
       <method />
     </configuration>
@@ -219,8 +218,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.kakaotalk_share.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.audio_play.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.audio_play.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.kakaotalk_share.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.audio2.html" />
       </list>
     </recent_temporary>
@@ -235,15 +234,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509804637107</updated>
-      <workItem from="1509804640749" duration="14881000" />
+      <workItem from="1509804640749" duration="15869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14881000" />
+    <option name="totallyTimeSpent" value="15869000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="541" y="516" width="1737" height="999" extended-state="0" />
+    <frame x="113" y="9" width="1737" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20892857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -317,8 +316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/audio_play.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6708">
-          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state relative-caret-position="452">
+          <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
           <folding />
         </state>
       </provider>
