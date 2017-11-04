@@ -18,6 +18,9 @@
         .section-divider{
             margin: 50px 0;
         }
+        #kakao-link-btn {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +52,7 @@
         </div>
         <div>
             <!-- 카카오톡 공유버튼 -->
-            <a id="kakao-link-btn" href="javascript:kakao_share_button_init();">
+            <a id="kakao-link-btn" href="javascript:;">
                 <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
             </a>
         </div>
@@ -107,6 +110,7 @@
         console.log(myAudio.currentTime);
         startTime = myAudio.currentTime;
         $('#start_time').val(myAudio.currentTime);
+        $('#kakao-link-btn').hide();
     }
 
     // 끝 구간 시간 구하는 함수
@@ -114,7 +118,9 @@
         console.log(myAudio.currentTime);
         endTime = myAudio.currentTime;
         $('#end_time').val(myAudio.currentTime);
+        // 끝 구간을 구하면 카카오톡 버튼을 초기화 한다.
         kakao_share_button_init();
+        $('#kakao-link-btn').show();
     }
 
     // 오디오 play 시간을 확인해서 끝 구간보다 커지면 오디오를 정지
