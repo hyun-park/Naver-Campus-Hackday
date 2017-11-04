@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db9ffd85-a970-4ab0-a53d-4ce6b1f939ab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/audio_play.html" afterPath="$PROJECT_DIR$/web/audio_play.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/kakaotalk_share.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +18,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="audio_play.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="audio_play.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/audio_play.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="137">
               <caret line="49" column="43" lean-forward="false" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kakaotalk_share.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/kakaotalk_share.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -44,6 +55,7 @@
       <list>
         <option value="$PROJECT_DIR$/web/audio2.html" />
         <option value="$PROJECT_DIR$/web/audio_play.html" />
+        <option value="$PROJECT_DIR$/web/kakaotalk_share.html" />
       </list>
     </option>
   </component>
@@ -153,11 +165,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.audio_play.html">
+  <component name="RunManager" selected="JavaScript Debug.kakaotalk_share.html">
     <configuration default="false" name="audio_play.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Naver-Campus-Hackday/web/audio_play.html">
       <method />
     </configuration>
     <configuration default="false" name="audio2.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Naver-Campus-Hackday/web/audio2.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="kakaotalk_share.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Naver-Campus-Hackday/web/kakaotalk_share.html">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -220,14 +235,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.audio_play.html" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.audio2.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.kakaotalk_share.html" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.audio_play.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.audio2.html" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.kakaotalk_share.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.audio_play.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.audio2.html" />
       </list>
     </recent_temporary>
   </component>
@@ -241,12 +258,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509804637107</updated>
-      <workItem from="1509804640749" duration="8806000" />
+      <workItem from="1509804640749" duration="9442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8806000" />
+    <option name="totallyTimeSpent" value="9442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="317" y="92" width="1535" height="999" extended-state="0" />
@@ -301,6 +318,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="49" column="43" lean-forward="false" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/kakaotalk_share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding />
         </state>
       </provider>
