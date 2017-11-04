@@ -2,9 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>오디오 구간 공유</title>
+    <!-- Jquery 임포트-->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <style>
+        div {
+            margin: 10px 0;
+        }
+        .section-divider{
+            margin: 50px 0;
+        }
+    </style>
 </head>
 <body>
+<h1>네이버 핵데이 - 오디오 구간 공유</h1>
+<div class="section-divider">
+    <div>
+        <audio controls="controls" id="myAudio">
+            <source src="../voice_data/sentence.ogg" type="audio/ogg" />
+            <source src="../voice_data/sentence.wav" type="audio/wav" />
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div>
+        <button onclick="aud_play_pause()">Play</button>
+        <button onclick="get_time()" id="get_time_btn">Get Start Play Time</button>
+    </div>
+    <div>
+        <div>
+            <label>Start Playing time:</label><input type="text" id="start_time">
+        </div>
+        <div>
+            <label>End Playing time:</label><input type="text" id="end_time">
+        </div>
+        <div>
+            <button onclick="play_specific_time()">Play Specific!</button>
+        </div>
+    </div>
+</div>
 
+<div class="section-divider">
+    <div>
+        <label>Play first 30 seconds - 35 seconds of audio by URI Fragments</label>
+    </div>
+    <div>
+        <audio id="outAudio" controls src="https://upload.wikimedia.org/wikipedia/commons/b/be/Hidden_Tribe_-_Didgeridoo_1_Live.ogg#t=30,35"></audio><br><br>
+    </div>
+</div>
+<script>
+        var myAudio = document.getElementById("myAudio");
+        var isStart = true;
+
+
+        var outAudio = document.getElementById("outAudio");
+        outAudio.addEventListener('play',function(){
+            outAudio.volume = 0.2;
+        })
+
+        function aud_play_pause() {
+            if (myAudio.paused) {
+                myAudio.play();
+            } else {
+                myAudio.pause();
+            }
+        }
+        function get_time() {
+            if(isStart){
+                $("#get_time_btn").text('Get End Play Time')
+                get_start_time();
+                isStart = !isStart;
+            } else {
+                $("#get_time_btn").text('Get Start Play Time')
+                get_end_time();
+                isStart = !isStart;
+            }
+        }
+        function get_start_time() {
+            console.log(myAudio.currentTime);
+            $('#start_time').val(myAudio.currentTime);
+        }
+        function get_end_time() {
+            console.log(myAudio.currentTime);
+            $('#end_time').val(myAudio.currentTime);
+        }
+        function check_time() {
+            var endtime = $('#end_time').val();
+            if(myAudio.currentTime >= endtime){
+                myAudio.pause();
+            }
+        }
+        function play_specific_time() {
+            var starttime = $('#start_time').val();
+            myAudio.currentTime = starttime;
+            myAudio.addEventListener('timeupdate', check_time);
+            myAudio.addEventListener('pause', remove_stop);
+            myAudio.play();
+        }
+
+        function remove_stop () {
+            console.log('stopped!');
+            myAudio.removeEventListener('timeupdate', check_time);
+        }
+</script>
 </body>
 </html>
