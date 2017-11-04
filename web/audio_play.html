@@ -103,29 +103,31 @@
     // 시작 구간 시간 구하는 함수
     function get_start_time() {
         console.log(myAudio.currentTime);
+        startTime = myAudio.currentTime;
         $('#start_time').val(myAudio.currentTime);
     }
 
     // 끝 구간 시간 구하는 함수
     function get_end_time() {
         console.log(myAudio.currentTime);
+        endTime = myAudio.currentTime;
         $('#end_time').val(myAudio.currentTime);
         kakao_share_button_init();
     }
 
     // 오디오 play 시간을 확인해서 끝 구간보다 커지면 오디오를 정지
     function check_time() {
-        endtime = $('#end_time').val();
-        if(myAudio.currentTime >= endtime){
+        endTime = $('#end_time').val();
+        if(myAudio.currentTime >= endTime){
             myAudio.pause();
         }
     }
 
     // 추출한 시간 특정 구간만 오디오를 재생하는 함수
     function play_specific_time() {
-        starttime = $('#start_time').val();
+        startTime = $('#start_time').val();
         // 오디오에 현재 시간을 starttime으로 바꿈
-        myAudio.currentTime = starttime;
+        myAudio.currentTime = startTime;
         // 오디오 시간이 변경될 때 마다 check_time 함수를 실행하는 event listener 등록
         myAudio.addEventListener('timeupdate', check_time);
         // 오디오가 정지될 때 check_time 함수를 event listener에서 삭제하는 remove_stop 함수를 event listener 등록
@@ -145,19 +147,20 @@
     }
 
     if(getURLParameter('stime')) {
-        starttime = getURLParameter('stime');
-        endtime = getURLParameter('etime');
-        myAudio.currentTime = starttime;
+        startTime = getURLParameter('stime');
+        endTime = getURLParameter('etime');
+        myAudio.currentTime = startTime;
         myAudio.play();
         myAudio.addEventListener('timeupdate', function(){
-            if(myAudio.currentTime >= endtime){
+            if(myAudio.currentTime >= endTime){
                 myAudio.pause();
             }
         });
     }
+    Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
 
     function kakao_share_button_init() {
-        Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
+        console.log(startTime);
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         Kakao.Link.createDefaultButton({
             container: '#kakao-link-btn',
