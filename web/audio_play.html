@@ -206,7 +206,8 @@
 
     function facebook_share_button_link() {
         var hostname = window.location.hostname;
-        location.href = 'https://www.facebook.com/sharer/sharer.php?u=http://' + hostname;
+        var pathname = window.location.pathname;
+        location.href = 'https://www.facebook.com/sharer/sharer.php?u=http://' + hostname + '/' + pathname + '?stime='+ startTime +'&etime='+ endTime;
     }
 </script>
 </body>
