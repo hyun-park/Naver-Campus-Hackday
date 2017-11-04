@@ -110,6 +110,7 @@
     function get_end_time() {
         console.log(myAudio.currentTime);
         $('#end_time').val(myAudio.currentTime);
+        kakao_share_button_init();
     }
 
     // 오디오 play 시간을 확인해서 끝 구간보다 커지면 오디오를 정지
@@ -155,26 +156,29 @@
         });
     }
 
-    Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
-    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-    Kakao.Link.createDefaultButton({
-        container: '#kakao-link-btn',
-        objectType: 'feed',
-        content: {
-            title: '팥빵 공유',
-            description: '#구간공유',
-            imageUrl: 'http://www.venturesquare.net/wp-content/uploads/2017/03/170310-podbbang.-002.png',
-            link: {
-                mobileWebUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
-                webUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
+    function kakao_share_button_init() {
+        Kakao.init('2dcc82c81e3a73ed534cec2802c366e5');
+        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        Kakao.Link.createDefaultButton({
+            container: '#kakao-link-btn',
+            objectType: 'feed',
+            content: {
+                title: '팥빵 공유',
+                description: '#구간공유',
+                imageUrl: 'http://www.venturesquare.net/wp-content/uploads/2017/03/170310-podbbang.-002.png',
+                link: {
+                    mobileWebUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
+                    webUrl: 'https://rocket-hyun.github.io/Naver-Campus-Hackday/web/audio_play.html?stime='+ startTime +'&etime='+ endTime,
+                }
+            },
+            social: {
+                likeCount: 286,
+                commentCount: 45,
+                sharedCount: 845
             }
-        },
-        social: {
-            likeCount: 286,
-            commentCount: 45,
-            sharedCount: 845
-        }
-    });
+        });
+
+    }
 
 </script>
 </body>
