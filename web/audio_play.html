@@ -58,6 +58,7 @@
             <a id="kakao-link-btn" href="javascript:;">
                 <img class="share-btn" src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
             </a>
+            <!-- 페이스북 공유버튼 -->
             <a href="javascript:facebook_share_button_link();">
                 <img class="share-btn" src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png"/>
             </a>
@@ -188,7 +189,7 @@
     // 카카오톡 버튼 초기화
     function kakao_share_button_init() {
         console.log(startTime);
-        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         Kakao.Link.createDefaultButton({
             container: '#kakao-link-btn',
             objectType: 'feed',
@@ -204,6 +205,7 @@
         });
     }
 
+    // 페이스북 공유 링크 함수
     function facebook_share_button_link() {
         var hostname = window.location.hostname;
         var pathname = window.location.pathname;
