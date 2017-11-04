@@ -33,19 +33,23 @@
     </div>
     <div>
         <div>
+            <!--특정 구간 시작 시간-->
             <label>Start Playing time:</label><input type="text" id="start_time">
         </div>
         <div>
+            <!--특정 구간 끝 시간-->
             <label>End Playing time:</label><input type="text" id="end_time">
         </div>
         <div>
+            <!--특정 구간만 재생-->
             <button onclick="play_specific_time()">Play Specific!</button>
         </div>
     </div>
 </div>
 
+<!-- 외부 오디오 파일은 URI Fragments로도 특정 구간 재생 가능 -->
 <div class="section-divider">
-    <div>
+        <div>
         <label>Play first 30 seconds - 35 seconds of audio by URI Fragments</label>
     </div>
     <div>
@@ -53,59 +57,79 @@
     </div>
 </div>
 <script>
-        var myAudio = document.getElementById("myAudio");
-        var isStart = true;
+    var myAudio = document.getElementById("myAudio");
+    // 특정 구간 추출하는 작동이 시작했는지 안했는지 판별하는 변수
+    var isStart = true;
 
+    var outAudio = document.getElementById("outAudio");
+    // 두 번째 오디오 파일을 시작하면 자동으로 볼륨을 0.2로 바꾸는 event listener 등록
+    outAudio.addEventListener('play',function(){
+        outAudio.volume = 0.2;
+    })
 
-        var outAudio = document.getElementById("outAudio");
-        outAudio.addEventListener('play',function(){
-            outAudio.volume = 0.2;
-        })
-
-        function aud_play_pause() {
-            if (myAudio.paused) {
-                myAudio.play();
-            } else {
-                myAudio.pause();
-            }
-        }
-        function get_time() {
-            if(isStart){
-                $("#get_time_btn").text('Get End Play Time')
-                get_start_time();
-                isStart = !isStart;
-            } else {
-                $("#get_time_btn").text('Get Start Play Time')
-                get_end_time();
-                isStart = !isStart;
-            }
-        }
-        function get_start_time() {
-            console.log(myAudio.currentTime);
-            $('#start_time').val(myAudio.currentTime);
-        }
-        function get_end_time() {
-            console.log(myAudio.currentTime);
-            $('#end_time').val(myAudio.currentTime);
-        }
-        function check_time() {
-            var endtime = $('#end_time').val();
-            if(myAudio.currentTime >= endtime){
-                myAudio.pause();
-            }
-        }
-        function play_specific_time() {
-            var starttime = $('#start_time').val();
-            myAudio.currentTime = starttime;
-            myAudio.addEventListener('timeupdate', check_time);
-            myAudio.addEventListener('pause', remove_stop);
+    // 오디오 play pause 함수
+    function aud_play_pause() {
+        if (myAudio.paused) {
             myAudio.play();
+        } else {
+            myAudio.pause();
         }
+    }
 
-        function remove_stop () {
-            console.log('stopped!');
-            myAudio.removeEventListener('timeupdate', check_time);
+    // 특정 구간 시간 추출하는 함수
+    // 시작이면 isStart가 true
+    // 끝이면 isStart가 false
+    function get_time() {
+        if(isStart){
+            $("#get_time_btn").text('Get End Play Time')
+            get_start_time();
+            isStart = !isStart;
+        } else {
+            $("#get_time_btn").text('Get Start Play Time')
+            get_end_time();
+            isStart = !isStart;
         }
+    }
+
+    // 시작 구간 시간 구하는 함수
+    function get_start_time() {
+        console.log(myAudio.currentTime);
+        $('#start_time').val(myAudio.currentTime);
+    }
+
+    // 끝 구간 시간 구하는 함수
+    function get_end_time() {
+        console.log(myAudio.currentTime);
+        $('#end_time').val(myAudio.currentTime);
+    }
+
+    // 오디오 play 시간을 확인해서 끝 구간보다 커지면 오디오를 정지
+    function check_time() {
+        var endtime = $('#end_time').val();
+        if(myAudio.currentTime >= endtime){
+            myAudio.pause();
+        }
+    }
+
+    // 추출한 시간 특정 구간만 오디오를 재생하는 함수
+    function play_specific_time() {
+        var starttime = $('#start_time').val();
+        // 오디오에 현재 시간을 starttime으로 바꿈
+        myAudio.currentTime = starttime;
+        // 오디오 시간이 변경될 때 마다 check_time 함수를 실행하는 event listener 등록
+        myAudio.addEventListener('timeupdate', check_time);
+        // 오디오가 정지될 때 check_time 함수를 event listener에서 삭제하는 remove_stop 함수를 event listener 등록
+        // 특정 구간 재생 이후에도 더 재생할 수 있게 하기 위함
+        myAudio.addEventListener('pause', remove_stop);
+        myAudio.play();
+    }
+
+    // check_time함수를 event listener에서 삭제하는 함수
+    function remove_stop () {
+        console.log('stopped!');
+        myAudio.removeEventListener('timeupdate', check_time);
+    }
+
 </script>
 </body>
 </html>
