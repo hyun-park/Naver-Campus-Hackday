@@ -24,7 +24,9 @@ def recognition():
     config = types.RecognitionConfig(
         encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=16000,
-        language_code='en-US')
+        # language_code='en-US'
+        language_code= 'ko-KR'
+        )
 
     # Detects speech in the audio file
     response = client.recognize(config, audio)
