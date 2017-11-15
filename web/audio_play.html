@@ -110,10 +110,16 @@
             $("#get_time_btn").text('Get End Play Time')
             get_start_time();
             isStart = !isStart;
+            $('#end_time').val('');
         } else {
-            $("#get_time_btn").text('Get Start Play Time')
-            get_end_time();
-            isStart = !isStart;
+            // 끝나는 시간이 시작시간 보다 이후인지 확인
+            if (myAudio.currentTime > startTime) {
+              $("#get_time_btn").text('Get Start Play Time');
+              get_end_time();
+              isStart = !isStart;
+            } else {
+              alert("끝나는 시간은 반드시 시작 시간보다 우선이어야 합니다!")
+            }
         }
     }
 
